@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Geist_Mono, Syne, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
+const syne = Syne({
   variable: "--font-display",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -33,7 +39,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${jakarta.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${syne.variable} ${spaceGrotesk.variable} ${geistMono.variable} antialiased`}
+      >
         {children}
       </body>
     </html>

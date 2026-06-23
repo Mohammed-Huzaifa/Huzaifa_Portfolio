@@ -77,7 +77,7 @@ const categories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-32 overflow-hidden" style={{ background: 'var(--surface)' }}>
+    <section id="skills" className="py-32 overflow-hidden" style={{ background: 'var(--bg)' }}>
       <div className="max-w-6xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -88,8 +88,7 @@ export default function Skills() {
         >
           <p className="section-label mb-5">Technical Skills</p>
           <h2
-            className="font-bold tracking-[-0.035em] leading-[0.9]"
-            style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', color: 'var(--text)' }}
+            style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 0.9, color: 'var(--text)' }}
           >
             Tools of the
             <br />

@@ -19,7 +19,7 @@ const projects: Project[] = [
     tags: ['AI Strategy', 'RAG', 'MCP', 'AI Agents', 'WordPress'],
     links: [{ label: 'Visit', href: 'https://fieldsignal.ai' }],
     image: '/5FDEFB50-089D-43EA-88FC-77923748E463.png',
-    accent: '#60A5FA',
+    accent: '#6366F1',
   },
   {
     index: '02', title: 'OpsGuru',
@@ -28,7 +28,7 @@ const projects: Project[] = [
     tags: ['Cloud Infrastructure', 'AI Agents', 'AWS', 'Contentful'],
     links: [{ label: 'Visit', href: 'https://www.opsguru.com' }],
     image: '/8C064D84-F587-49B1-ACF9-3D9261DECD10.png',
-    accent: '#A78BFA',
+    accent: '#818CF8',
   },
   {
     index: '03', title: 'Borderless Creatives', role: 'Technical Lead',
@@ -46,7 +46,7 @@ const projects: Project[] = [
     tags: ['B2B SaaS', 'React', 'Node.js', 'PostgreSQL'],
     links: [{ label: 'Visit', href: 'https://www.commercebear.com' }],
     image: '/9452249F-BB20-4C23-8E22-18A7D35C77D8.png',
-    accent: '#FBBF24',
+    accent: '#F59E0B',
   },
   {
     index: '05', title: 'Digiworks AI', role: 'Technical Lead',
@@ -68,8 +68,8 @@ export default function Projects() {
   const active = hovered !== null ? projects[hovered] : null
 
   return (
-    <section id="projects" className="py-32" style={{ background: 'var(--surface)' }}>
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="projects" className="py-28 lg:py-36" style={{ background: 'var(--l-bg)' }}>
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
@@ -79,16 +79,23 @@ export default function Projects() {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <p className="section-label mb-5">Selected Work</p>
+          <p className="section-label mb-6">Selected Work</p>
           <h2
-            className="font-bold tracking-[-0.035em] leading-[0.9] mb-4"
-            style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', color: 'var(--text)' }}
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 'clamp(2.4rem, 5.5vw, 5rem)',
+              fontWeight: 800,
+              letterSpacing: '-0.04em',
+              lineHeight: 0.9,
+              color: 'var(--l-text)',
+              marginBottom: '16px',
+            }}
           >
             Projects I&apos;ve
             <br />
-            <span style={{ color: 'var(--faint)' }}>shipped</span>
+            <span style={{ color: 'var(--l-faint)' }}>shipped.</span>
           </h2>
-          <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
+          <p style={{ fontSize: '14px', color: 'var(--l-text-3)' }}>
             A few highlights — there&apos;s a lot more where this came from.
           </p>
         </motion.div>
@@ -102,19 +109,19 @@ export default function Projects() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            style={{ borderTop: '1px solid var(--border)' }}
+            style={{ borderTop: '1px solid var(--l-border)' }}
           >
             {projects.map((p, i) => (
               <div
                 key={p.title}
-                className="project-row group flex items-center gap-4 py-6 cursor-default"
+                className="project-row-light group flex items-center gap-4 py-6 cursor-default"
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
                 {/* Index */}
                 <span
                   className="w-7 shrink-0 text-xs"
-                  style={{ fontFamily: 'var(--font-mono)', color: 'var(--faint)' }}
+                  style={{ fontFamily: 'var(--font-mono)', color: 'var(--l-faint)' }}
                 >
                   {p.index}
                 </span>
@@ -124,7 +131,11 @@ export default function Projects() {
                   <div className="flex flex-wrap items-center gap-2.5 mb-1">
                     <h3
                       className="font-semibold text-[15px] transition-colors duration-150"
-                      style={{ color: hovered === i ? 'var(--text)' : 'var(--text-secondary)', letterSpacing: '-0.02em' }}
+                      style={{
+                        fontFamily: 'var(--font-display)',
+                        color: hovered === i ? 'var(--l-text)' : 'var(--l-text-2)',
+                        letterSpacing: '-0.02em',
+                      }}
                     >
                       {p.title}
                     </h3>
@@ -132,8 +143,8 @@ export default function Projects() {
                       <span
                         className="text-[11px] px-2 py-0.5 rounded-full font-medium"
                         style={{
-                          background: `${p.accent}12`,
-                          border: `1px solid ${p.accent}25`,
+                          background: `${p.accent}14`,
+                          border: `1px solid ${p.accent}28`,
                           color: p.accent,
                           fontFamily: 'var(--font-mono)',
                         }}
@@ -142,7 +153,7 @@ export default function Projects() {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs truncate" style={{ color: 'var(--text-muted)' }}>
+                  <p className="text-xs truncate" style={{ color: 'var(--l-text-3)' }}>
                     {p.tagline}
                   </p>
                 </div>
@@ -154,9 +165,9 @@ export default function Projects() {
                       key={t}
                       className="text-[11px] px-2.5 py-1 rounded-full"
                       style={{
-                        background: 'var(--card)',
-                        border: '1px solid var(--border)',
-                        color: 'var(--text-muted)',
+                        background: 'var(--l-card)',
+                        border: '1px solid var(--l-border)',
+                        color: 'var(--l-text-3)',
                         fontFamily: 'var(--font-mono)',
                       }}
                     >
@@ -202,11 +213,11 @@ export default function Projects() {
                 >
                   {/* Screenshot */}
                   <div
-                    className="w-full rounded-xl overflow-hidden mb-5"
+                    className="w-full rounded-xl overflow-hidden mb-4"
                     style={{
                       aspectRatio: '16/10',
-                      background: 'var(--card)',
-                      border: '1px solid var(--border)',
+                      background: 'var(--l-card)',
+                      border: '1px solid var(--l-border)',
                     }}
                   >
                     {active.image ? (
@@ -217,7 +228,7 @@ export default function Projects() {
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
-                        <ImageIcon size={20} style={{ color: 'var(--faint)' }} />
+                        <ImageIcon size={20} style={{ color: 'var(--l-faint)' }} />
                       </div>
                     )}
                   </div>
@@ -225,10 +236,13 @@ export default function Projects() {
                   {/* Project meta */}
                   <div
                     className="rounded-xl p-5"
-                    style={{ background: 'var(--card)', border: '1px solid var(--border)' }}
+                    style={{ background: 'var(--l-card)', border: '1px solid var(--l-border)' }}
                   >
                     <div className="flex items-start justify-between mb-2">
-                      <h4 className="font-semibold text-sm" style={{ color: 'var(--text)', letterSpacing: '-0.02em' }}>
+                      <h4
+                        className="font-semibold text-sm"
+                        style={{ fontFamily: 'var(--font-display)', color: 'var(--l-text)', letterSpacing: '-0.02em' }}
+                      >
                         {active.title}
                       </h4>
                       <span
@@ -239,8 +253,8 @@ export default function Projects() {
                       </span>
                     </div>
                     <p
-                      className="text-xs leading-relaxed mb-5"
-                      style={{ color: 'var(--text-muted)', lineHeight: 1.7 }}
+                      className="text-xs leading-relaxed mb-4"
+                      style={{ color: 'var(--l-text-2)', lineHeight: 1.7 }}
                     >
                       {active.description}
                     </p>
@@ -253,7 +267,7 @@ export default function Projects() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full transition-all duration-150"
                           style={{
-                            background: `${active.accent}0f`,
+                            background: `${active.accent}10`,
                             border: `1px solid ${active.accent}28`,
                             color: active.accent,
                           }}
@@ -262,7 +276,7 @@ export default function Projects() {
                             e.currentTarget.style.borderColor = `${active.accent}50`
                           }}
                           onMouseLeave={(e) => {
-                            e.currentTarget.style.background = `${active.accent}0f`
+                            e.currentTarget.style.background = `${active.accent}10`
                             e.currentTarget.style.borderColor = `${active.accent}28`
                           }}
                         >
@@ -281,19 +295,19 @@ export default function Projects() {
                   className="w-full rounded-xl flex flex-col items-center justify-center gap-3"
                   style={{
                     aspectRatio: '16/10',
-                    background: 'var(--card)',
-                    border: '1px solid var(--border)',
+                    background: 'var(--l-card)',
+                    border: '1px solid var(--l-border)',
                   }}
                 >
                   <div
                     className="w-8 h-8 rounded-lg flex items-center justify-center"
-                    style={{ background: 'var(--card-hover)', border: '1px solid var(--border-hover)' }}
+                    style={{ background: 'var(--l-surface)', border: '1px solid var(--l-border)' }}
                   >
-                    <ImageIcon size={14} style={{ color: 'var(--faint)' }} />
+                    <ImageIcon size={14} style={{ color: 'var(--l-faint)' }} />
                   </div>
                   <p
                     className="text-xs"
-                    style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}
+                    style={{ color: 'var(--l-text-3)', fontFamily: 'var(--font-mono)' }}
                   >
                     hover a project
                   </p>
@@ -303,16 +317,21 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Mobile: project cards (no sticky panel) */}
+        {/* Mobile cards */}
         <div className="lg:hidden mt-10 grid gap-4">
           {projects.map((p) => (
             <div
               key={p.title}
               className="rounded-xl p-5"
-              style={{ background: 'var(--card)', border: '1px solid var(--border)' }}
+              style={{ background: 'var(--l-card)', border: '1px solid var(--l-border)' }}
             >
               <div className="flex items-center gap-2 mb-2">
-                <span className="font-semibold text-sm" style={{ color: 'var(--text)', letterSpacing: '-0.02em' }}>{p.title}</span>
+                <span
+                  className="font-semibold text-sm"
+                  style={{ fontFamily: 'var(--font-display)', color: 'var(--l-text)', letterSpacing: '-0.02em' }}
+                >
+                  {p.title}
+                </span>
                 {p.role && (
                   <span
                     className="text-[11px] px-2 py-0.5 rounded-full"
@@ -322,7 +341,7 @@ export default function Projects() {
                   </span>
                 )}
               </div>
-              <p className="text-xs mb-4" style={{ color: 'var(--text-muted)' }}>{p.tagline}</p>
+              <p className="text-xs mb-4" style={{ color: 'var(--l-text-2)' }}>{p.tagline}</p>
               <div className="flex flex-wrap gap-2">
                 {p.links.map((l) => (
                   <a
@@ -331,7 +350,7 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-xs font-medium px-3 py-1.5 rounded-full"
-                    style={{ background: `${p.accent}0f`, border: `1px solid ${p.accent}28`, color: p.accent }}
+                    style={{ background: `${p.accent}10`, border: `1px solid ${p.accent}28`, color: p.accent }}
                   >
                     {l.label} <ArrowUpRight size={10} />
                   </a>

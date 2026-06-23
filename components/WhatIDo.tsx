@@ -1,46 +1,37 @@
 'use client'
 import { motion } from 'motion/react'
-import { Brain, Code2, Zap, Rocket } from 'lucide-react'
 
 const services = [
   {
     num: '01',
-    icon: Brain,
     title: 'AI Product Development',
     description:
       'I don\'t just integrate AI — I build products around it. From copilots and agents to RAG pipelines and LLM-powered workflows, I design systems that actually work in production.',
-    accent: '#7C6EE6',
   },
   {
     num: '02',
-    icon: Code2,
     title: 'Full-Stack Engineering',
     description:
       'Polished frontends, solid backends, clean databases. I build end-to-end — from the UI people interact with to the infrastructure it runs on.',
-    accent: '#60A5FA',
   },
   {
     num: '03',
-    icon: Zap,
     title: 'Business Automation',
     description:
       'Repetitive work is expensive. I connect business processes, communication channels, and AI systems to eliminate manual overhead and unlock scale.',
-    accent: '#34D399',
   },
   {
     num: '04',
-    icon: Rocket,
     title: 'Venture Building',
     description:
       'I find problems worth solving, validate fast, and ship. From zero to first users — the full arc of taking something from a napkin sketch to a live product.',
-    accent: '#FB923C',
   },
 ]
 
 export default function WhatIDo() {
   return (
-    <section id="about" className="py-32" style={{ background: 'var(--bg)' }}>
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="about" className="py-28 lg:py-36" style={{ background: 'var(--l-bg)' }}>
+      <div className="max-w-6xl mx-auto px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
@@ -48,77 +39,89 @@ export default function WhatIDo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.5 }}
-          className="mb-20"
+          className="mb-20 lg:grid lg:grid-cols-[1fr_1fr] lg:gap-20 items-end"
         >
-          <p className="section-label mb-5">What I Do</p>
-          <h2
-            className="font-bold tracking-[-0.035em] leading-[0.9]"
-            style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', color: 'var(--text)' }}
-          >
-            From idea to
-            <br />
-            <span style={{ color: 'var(--faint)' }}>shipped product</span>
-          </h2>
+          <div>
+            <p className="section-label mb-7">What I Do</p>
+            <h2
+              style={{
+                fontFamily: 'var(--font-display)',
+                fontSize: 'clamp(2.6rem, 5.5vw, 5rem)',
+                fontWeight: 800,
+                letterSpacing: '-0.04em',
+                lineHeight: 0.9,
+                color: 'var(--l-text)',
+              }}
+            >
+              From idea
+              <br />
+              to shipped.
+            </h2>
+          </div>
+          <div className="mt-8 lg:mt-0">
+            <p style={{ color: 'var(--l-text-2)', fontSize: '16px', lineHeight: 1.8, maxWidth: '380px' }}>
+              I work across the full arc of building — product thinking, engineering,
+              AI integration, and the operational pieces that make a company actually run.
+            </p>
+          </div>
         </motion.div>
 
-        {/* Cards — 2-col grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {/* Editorial rows */}
+        <div>
           {services.map((s, i) => (
             <motion.div
               key={s.num}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.45, delay: i * 0.07 }}
-              className="group relative rounded-2xl p-7 cursor-default overflow-hidden transition-all duration-300"
-              style={{ background: 'var(--card)', border: '1px solid var(--border)' }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLDivElement
-                el.style.borderColor = `${s.accent}28`
-                el.style.background = `var(--card-hover)`
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLDivElement
-                el.style.borderColor = 'var(--border)'
-                el.style.background = 'var(--card)'
-              }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.48, delay: i * 0.07 }}
+              className="group py-9 lg:grid lg:grid-cols-[80px_1fr] lg:gap-10 cursor-default"
+              style={{ borderTop: '1px solid var(--l-border)' }}
             >
-              {/* Subtle top accent line */}
-              <div
-                className="absolute top-0 left-8 right-8 h-px transition-all duration-300 group-hover:left-5 group-hover:right-5"
-                style={{ background: `linear-gradient(90deg, transparent, ${s.accent}50, transparent)` }}
-              />
-
               {/* Number */}
-              <span
-                className="absolute top-6 right-6 text-xs font-medium"
-                style={{ color: 'var(--faint)', fontFamily: 'var(--font-mono)', letterSpacing: '0.1em' }}
-              >
-                {s.num}
-              </span>
-
-              {/* Icon */}
-              <div
-                className="w-10 h-10 rounded-xl flex items-center justify-center mb-6"
-                style={{ background: `${s.accent}10`, border: `1px solid ${s.accent}20` }}
-              >
-                <s.icon size={17} style={{ color: s.accent }} />
+              <div className="mb-4 lg:mb-0 flex items-start">
+                <span
+                  style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '11px',
+                    letterSpacing: '0.18em',
+                    color: 'var(--accent)',
+                    paddingTop: '4px',
+                  }}
+                >
+                  {s.num}
+                </span>
               </div>
 
-              <h3
-                className="font-semibold text-[15px] mb-3 transition-colors duration-200"
-                style={{ color: 'var(--text)', letterSpacing: '-0.02em' }}
-              >
-                {s.title}
-              </h3>
-              <p
-                className="text-sm leading-relaxed"
-                style={{ color: 'var(--text-muted)', lineHeight: 1.75 }}
-              >
-                {s.description}
-              </p>
+              {/* Content */}
+              <div className="lg:grid lg:grid-cols-[1fr_1fr] lg:gap-14 items-start">
+                <h3
+                  className="transition-colors duration-200"
+                  style={{
+                    fontFamily: 'var(--font-display)',
+                    fontSize: 'clamp(1.2rem, 2.2vw, 1.6rem)',
+                    fontWeight: 700,
+                    letterSpacing: '-0.03em',
+                    color: 'var(--l-text)',
+                    lineHeight: 1.15,
+                    marginBottom: '14px',
+                  }}
+                >
+                  {s.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: '15px',
+                    color: 'var(--l-text-2)',
+                    lineHeight: 1.8,
+                  }}
+                >
+                  {s.description}
+                </p>
+              </div>
             </motion.div>
           ))}
+          <div style={{ borderTop: '1px solid var(--l-border)' }} />
         </div>
       </div>
     </section>

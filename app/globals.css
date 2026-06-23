@@ -2,32 +2,41 @@
 
 /* ─── Design tokens ─────────────────────────────────────────── */
 :root {
-  --bg:              #080809;
-  --surface:         #0d0d0f;
-  --card:            #111114;
-  --card-hover:      #17171b;
+  /* ── Dark section palette ───────────────────────────────── */
+  --bg:              #17191B;
+  --surface:         #1D2024;
+  --card:            #24282E;
+  --card-hover:      #2B3038;
+  --border:          rgba(255, 255, 255, 0.07);
+  --border-hover:    rgba(255, 255, 255, 0.13);
+  --text:            #F0EDE7;
+  --text-secondary:  #9A9AAA;
+  --text-muted:      #5A5A68;
+  --faint:           #3C3C4A;
 
-  --border:          #1e1e25;
-  --border-hover:    #2c2c36;
+  /* ── Light / Cream section palette ─────────────────────── */
+  --l-bg:            #F7F3EF;
+  --l-surface:       #EDE9E3;
+  --l-card:          #FFFFFF;
+  --l-card-hover:    #F5F2EE;
+  --l-border:        rgba(0, 0, 0, 0.09);
+  --l-border-hover:  rgba(0, 0, 0, 0.16);
+  --l-text:          #111114;
+  --l-text-2:        #5C5C6A;
+  --l-text-3:        #9A9AA8;
+  --l-faint:         #C8C4BE;
 
-  --text:            #f0f0f2;
-  --text-secondary:  #95959f;
-  --text-muted:      #56565e;
-  --faint:           #383840;
+  /* ── Accent ─────────────────────────────────────────────── */
+  --accent:          #6366F1;
+  --accent-light:    #818CF8;
+  --accent-dim:      rgba(99, 102, 241, 0.12);
+  --accent-glow:     rgba(99, 102, 241, 0.22);
 
-  --accent:          #7C6EE6;
-  --accent-light:    #9d91f0;
-  --accent-dim:      rgba(124, 110, 230, 0.12);
-  --accent-glow:     rgba(124, 110, 230, 0.2);
-
-  --cream:           #F6F5F1;
-  --cream-card:      #FFFFFF;
-  --cream-border:    #E4E2DC;
-  --cream-muted:     #878794;
-  --cream-text:      #0f0f12;
-
-  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-mono:    'Geist Mono', 'Fira Code', monospace;
+  /* ── Personal section cream ─────────────────────────────── */
+  --cream:           #F7F4EE;
+  --cream-border:    #E5E0D7;
+  --cream-text:      #111114;
+  --cream-muted:     #787878;
 }
 
 /* ─── Base ──────────────────────────────────────────────────── */
@@ -38,15 +47,19 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: var(--font-display);
+    font-family: var(--font-body), 'Space Grotesk', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 15px;
     line-height: 1.6;
   }
 
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display), 'Syne', system-ui, sans-serif;
+  }
+
   ::selection {
-    background: rgba(124, 110, 230, 0.22);
+    background: rgba(99, 102, 241, 0.22);
     color: #fff;
   }
 
@@ -84,58 +97,68 @@
   .marquee-left:hover,
   .marquee-right:hover { animation-play-state: paused; }
 
-  /* Gradient text — used on hero name */
+  /* Gradient text — hero dark panel */
   .gradient-text {
-    background: linear-gradient(135deg, #a78bfa 0%, #818cf8 60%, #60a5fa 100%);
+    background: linear-gradient(135deg, #A5B4FC 0%, #818CF8 45%, #6366F1 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
 
+  /* Gradient text warm — mission section */
   .gradient-text-warm {
-    background: linear-gradient(135deg, #7C6EE6 0%, #a78bfa 100%);
+    background: linear-gradient(135deg, #818CF8 0%, #6366F1 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
 
-  /* Grain noise — thin SVG noise layer */
+  /* Grain noise overlay */
   .grain::after {
     content: '';
     position: absolute;
     inset: 0;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.028;
+    opacity: 0.025;
     pointer-events: none;
     z-index: 1;
   }
 
-  /* Subtle dot grid overlay */
+  /* Dot grid — dark panels */
   .dot-grid {
-    background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
     background-size: 28px 28px;
   }
 
   /* Ping pulse */
   .ping-slow { animation: ping-slow 2.2s ease-in-out infinite; }
 
-  /* Section label — mono caps */
+  /* Section label — accent mono caps */
   .section-label {
-    font-family: var(--font-mono);
+    font-family: var(--font-mono), monospace;
     font-size: 11px;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--accent);
   }
 
-  /* Project row hover line */
+  /* Project row — dark section */
   .project-row {
     border-bottom: 1px solid var(--border);
     transition: background 150ms ease;
   }
   .project-row:hover {
     background: var(--card);
+  }
+
+  /* Project row — light section */
+  .project-row-light {
+    border-bottom: 1px solid var(--l-border);
+    transition: background 150ms ease;
+  }
+  .project-row-light:hover {
+    background: var(--l-surface);
   }
 }

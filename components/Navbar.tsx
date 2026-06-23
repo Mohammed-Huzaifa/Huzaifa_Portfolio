@@ -78,17 +78,17 @@ export default function Navbar() {
             href="#contact"
             className="px-4 py-1.5 rounded-full text-[13px] font-semibold transition-all duration-200"
             style={{
-              background: 'rgba(139,124,246,0.15)',
-              color: '#A78BFA',
-              border: '1px solid rgba(139,124,246,0.25)',
+              background: 'rgba(99,102,241,0.15)',
+              color: '#818CF8',
+              border: '1px solid rgba(99,102,241,0.28)',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'rgba(139,124,246,0.25)'
-              e.currentTarget.style.borderColor = 'rgba(139,124,246,0.45)'
+              e.currentTarget.style.background = 'rgba(99,102,241,0.28)'
+              e.currentTarget.style.borderColor = 'rgba(99,102,241,0.5)'
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'rgba(139,124,246,0.15)'
-              e.currentTarget.style.borderColor = 'rgba(139,124,246,0.25)'
+              e.currentTarget.style.background = 'rgba(99,102,241,0.15)'
+              e.currentTarget.style.borderColor = 'rgba(99,102,241,0.28)'
             }}
           >
             Let&apos;s Talk
@@ -153,7 +153,7 @@ export default function Navbar() {
             <a
               href="#contact"
               className="px-4 py-2.5 rounded-xl text-sm font-semibold text-center"
-              style={{ background: 'rgba(139,124,246,0.12)', color: '#A78BFA' }}
+              style={{ background: 'rgba(99,102,241,0.12)', color: '#818CF8' }}
               onClick={() => setMenuOpen(false)}
             >
               Let&apos;s Talk

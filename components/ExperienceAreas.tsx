@@ -17,7 +17,7 @@ const areas = [
 
 export default function ExperienceAreas() {
   return (
-    <section id="work" className="py-32" style={{ background: 'var(--bg)' }}>
+    <section id="work" className="py-32" style={{ background: 'var(--surface)' }}>
       <div className="max-w-6xl mx-auto px-6">
 
         <motion.div
@@ -30,7 +30,7 @@ export default function ExperienceAreas() {
           <p className="section-label mb-5">Areas of Experience</p>
           <h2
             className="font-bold tracking-[-0.035em] leading-[0.9]"
-            style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', color: 'var(--text)' }}
+            style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', color: 'var(--text)' }}
           >
             Where I&apos;ve
             <br />

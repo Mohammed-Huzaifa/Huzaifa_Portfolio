@@ -47,8 +47,7 @@ export default function Personal() {
         >
           <p className="section-label mb-5">Beyond Work</p>
           <h2
-            className="font-bold tracking-[-0.035em] leading-[0.9]"
-            style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', color: 'var(--cream-text)' }}
+            style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 0.9, color: 'var(--cream-text)' }}
           >
             What keeps me
             <br />
