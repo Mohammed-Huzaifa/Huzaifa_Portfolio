@@ -2,24 +2,29 @@
 
 /* ─── Design tokens ─────────────────────────────────────────── */
 :root {
-  --bg:           #0C0C0F;
-  --surface:      #131318;
-  --card:         #18181E;
-  --border:       rgba(255, 255, 255, 0.07);
-  --border-hover: rgba(255, 255, 255, 0.14);
-  --text:         #EDEDF0;
-  --muted:        #7070808;
-  --faint:        #3C3C48;
+  --bg:              #080809;
+  --surface:         #0d0d0f;
+  --card:            #111114;
+  --card-hover:      #17171b;
 
-  --accent:       #8B7CF6;
-  --accent-dim:   rgba(139, 124, 246, 0.12);
-  --accent-glow:  rgba(139, 124, 246, 0.25);
+  --border:          #1e1e25;
+  --border-hover:    #2c2c36;
 
-  --cream:        #F5F4F0;
-  --cream-card:   #FFFFFF;
-  --cream-border: #E6E4DF;
-  --cream-muted:  #8A8A96;
-  --cream-text:   #111118;
+  --text:            #f0f0f2;
+  --text-secondary:  #95959f;
+  --text-muted:      #56565e;
+  --faint:           #383840;
+
+  --accent:          #7C6EE6;
+  --accent-light:    #9d91f0;
+  --accent-dim:      rgba(124, 110, 230, 0.12);
+  --accent-glow:     rgba(124, 110, 230, 0.2);
+
+  --cream:           #F6F5F1;
+  --cream-card:      #FFFFFF;
+  --cream-border:    #E4E2DC;
+  --cream-muted:     #878794;
+  --cream-text:      #0f0f12;
 
   --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-mono:    'Geist Mono', 'Fira Code', monospace;
@@ -36,16 +41,18 @@
     font-family: var(--font-display);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 15px;
+    line-height: 1.6;
   }
 
   ::selection {
-    background: rgba(139, 124, 246, 0.22);
+    background: rgba(124, 110, 230, 0.22);
     color: #fff;
   }
 
-  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar { width: 3px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: #2a2a38; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb { background: #2a2a35; border-radius: 4px; }
 }
 
 /* ─── Keyframes ─────────────────────────────────────────────── */
@@ -59,90 +66,76 @@
   to   { transform: translateX(0); }
 }
 
-@keyframes blob-drift-a {
-  0%, 100% { transform: translate(0px,   0px)  scale(1);    }
-  33%       { transform: translate(40px, -35px) scale(1.06); }
-  66%       { transform: translate(-25px, 25px) scale(0.95); }
-}
-
-@keyframes blob-drift-b {
-  0%, 100% { transform: translate(0px,   0px)  scale(1);    }
-  33%       { transform: translate(-35px, 30px) scale(1.04); }
-  66%       { transform: translate(30px, -20px) scale(0.96); }
-}
-
-@keyframes blob-drift-c {
-  0%, 100% { transform: translate(0px,  0px)   scale(1);    }
-  50%       { transform: translate(20px, 40px)  scale(1.08); }
+@keyframes ping-slow {
+  0%, 100% { transform: scale(1);   opacity: 0.75; }
+  50%       { transform: scale(1.5); opacity: 0;    }
 }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0);    }
-}
-
-@keyframes ping-slow {
-  0%, 100% { transform: scale(1);   opacity: 0.8; }
-  50%       { transform: scale(1.4); opacity: 0;   }
 }
 
 /* ─── Utilities ─────────────────────────────────────────────── */
 @layer utilities {
-  /* Marquee */
-  .marquee-left  { animation: marquee-left  28s linear infinite; }
-  .marquee-right { animation: marquee-right 32s linear infinite; }
+
+  .marquee-left  { animation: marquee-left  30s linear infinite; }
+  .marquee-right { animation: marquee-right 34s linear infinite; }
   .marquee-left:hover,
   .marquee-right:hover { animation-play-state: paused; }
 
-  /* Gradient text */
+  /* Gradient text — used on hero name */
   .gradient-text {
-    background: linear-gradient(135deg, #A78BFA 0%, #60A5FA 50%, #34D399 100%);
+    background: linear-gradient(135deg, #a78bfa 0%, #818cf8 60%, #60a5fa 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
 
-  .gradient-text-violet {
-    background: linear-gradient(135deg, #8B7CF6 0%, #C084FC 100%);
+  .gradient-text-warm {
+    background: linear-gradient(135deg, #7C6EE6 0%, #a78bfa 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
 
-  /* Grid overlay */
-  .grid-overlay {
-    background-image:
-      linear-gradient(to right, rgba(255,255,255,0.025) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255,255,255,0.025) 1px, transparent 1px);
-    background-size: 80px 80px;
-  }
-
-  /* Grain noise texture */
+  /* Grain noise — thin SVG noise layer */
   .grain::after {
     content: '';
     position: absolute;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    opacity: 0.032;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.028;
     pointer-events: none;
     z-index: 1;
   }
 
-  /* Blob animations */
-  .blob-a { animation: blob-drift-a 9s  ease-in-out infinite; }
-  .blob-b { animation: blob-drift-b 12s ease-in-out infinite; }
-  .blob-c { animation: blob-drift-c 15s ease-in-out infinite; }
-
-  /* Ping slow */
-  .ping-slow { animation: ping-slow 2s ease-in-out infinite; }
-
-  /* Card glow on hover */
-  .card-glow {
-    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  /* Subtle dot grid overlay */
+  .dot-grid {
+    background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 28px 28px;
   }
-  .card-glow:hover {
-    box-shadow: 0 0 0 1px rgba(139,124,246,0.18), 0 8px 32px rgba(139,124,246,0.08);
+
+  /* Ping pulse */
+  .ping-slow { animation: ping-slow 2.2s ease-in-out infinite; }
+
+  /* Section label — mono caps */
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  /* Project row hover line */
+  .project-row {
+    border-bottom: 1px solid var(--border);
+    transition: background 150ms ease;
+  }
+  .project-row:hover {
+    background: var(--card);
   }
 }

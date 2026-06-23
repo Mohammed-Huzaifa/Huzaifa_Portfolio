@@ -27,14 +27,9 @@ export default function ExperienceAreas() {
           transition={{ duration: 0.5 }}
           className="mb-20"
         >
-          <p
-            className="text-xs tracking-[0.3em] uppercase mb-5"
-            style={{ color: '#8B7CF6', fontFamily: 'var(--font-mono)' }}
-          >
-            Areas of Experience
-          </p>
+          <p className="section-label mb-5">Areas of Experience</p>
           <h2
-            className="font-extrabold tracking-[-0.03em] leading-[0.9]"
+            className="font-bold tracking-[-0.035em] leading-[0.9]"
             style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', color: 'var(--text)' }}
           >
             Where I&apos;ve

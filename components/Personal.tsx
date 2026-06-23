@@ -45,14 +45,9 @@ export default function Personal() {
           transition={{ duration: 0.5 }}
           className="mb-20"
         >
-          <p
-            className="text-xs tracking-[0.3em] uppercase mb-5"
-            style={{ color: '#8B7CF6', fontFamily: 'var(--font-mono)' }}
-          >
-            Beyond Work
-          </p>
+          <p className="section-label mb-5">Beyond Work</p>
           <h2
-            className="font-extrabold tracking-[-0.03em] leading-[0.9]"
+            className="font-bold tracking-[-0.035em] leading-[0.9]"
             style={{ fontSize: 'clamp(2.4rem, 6vw, 4.5rem)', color: 'var(--cream-text)' }}
           >
             What keeps me
